@@ -55,10 +55,10 @@ def merge_tabela(nome_tabela_origem: str, nome_tabela_destino: str, conn_origem,
     novas_colunas = set(colunas_origem) - set(colunas_destino)
     
     defaults = {
-    "integer": 0,
-    "int4": 0,
-    "bigint": 0,
-    "numeric": 0,
+    "integer": 1,
+    "int4": 1,
+    "bigint": 1,
+    "numeric": 1,
     "boolean": "FALSE",
     "text": "''",
     "varchar": "''",
@@ -155,4 +155,5 @@ for tabela in tabelas_origem:
     merge_tabela(tabela, tabela, conn_grupo2, conn_grupo3)
 
 del cursor_grupo2
+
 del rows
