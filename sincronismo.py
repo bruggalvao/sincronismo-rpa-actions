@@ -138,8 +138,8 @@ try:
 except (Exception, psycopg2.Error) as error:
     print("Erro ao conectar com o banco do Grupo 3", error)
 
-cursor_grupo2 = conn_grupo2.cursor()
-cursor_grupo3 = conn_grupo3.cursor()
+# cursor_grupo2 = conn_grupo2.cursor()
+# cursor_grupo3 = conn_grupo3.cursor()
 
 # sql_tabelas_origem = """
 #     SELECT table_name
@@ -158,4 +158,5 @@ for tabela in tabelas_origem:
 
 del cursor_grupo2
 del rows
+
 
