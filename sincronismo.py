@@ -151,10 +151,11 @@ cursor_grupo3 = conn_grupo3.cursor()
 # rows = cursor_grupo2.fetchall()
 # tabelas_origem = [r[0] for r in rows]
 
-list = ['paises', 'fases', 'campeonatos', 'jogadores', 'partidas', 'chaveamento']
+tabelas_origem = ['paises', 'fases', 'campeonatos', 'jogadores', 'partidas', 'chaveamento']
 
 for tabela in tabelas_origem:
     merge_tabela(tabela, tabela, conn_grupo2, conn_grupo3)
 
 del cursor_grupo2
 del rows
+
