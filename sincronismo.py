@@ -141,19 +141,20 @@ except (Exception, psycopg2.Error) as error:
 cursor_grupo2 = conn_grupo2.cursor()
 cursor_grupo3 = conn_grupo3.cursor()
 
-sql_tabelas_origem = """
-    SELECT table_name
-    FROM information_schema.tables
-    WHERE table_schema = 'public'
-    AND table_type = 'BASE TABLE';
-"""
-cursor_grupo2.execute(sql_tabelas_origem)
-rows = cursor_grupo2.fetchall()
-tabelas_origem = [r[0] for r in rows]
+# sql_tabelas_origem = """
+#     SELECT table_name
+#     FROM information_schema.tables
+#     WHERE table_schema = 'public'
+#     AND table_type = 'BASE TABLE';
+# """
+# cursor_grupo2.execute(sql_tabelas_origem)
+# rows = cursor_grupo2.fetchall()
+# tabelas_origem = [r[0] for r in rows]
+
+list = ['paises', 'fases', 'campeonatos', 'jogadores', 'partidas', 'chaveamento']
 
 for tabela in tabelas_origem:
     merge_tabela(tabela, tabela, conn_grupo2, conn_grupo3)
 
 del cursor_grupo2
-
 del rows
